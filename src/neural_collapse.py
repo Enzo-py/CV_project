@@ -1,6 +1,5 @@
 import torch
 import torch.nn.functional as F
-import matplotlib.pyplot as plt
 
 def compute_nc_metrics(features, labels, weights=None, num_classes=100):
     """

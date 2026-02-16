@@ -7,7 +7,7 @@ This project explores the emergence of **Neural Collapse (NC)** in deep classifi
 ### 1. Requirements
 Ensure you have the following installed:
 * Python 3.10+
-* requirements.txt
+* requirements.txt (`pip install -r requirements.txt`)
 
 ### 2. Configuration
 Before running the notebooks, verify the paths in `config.py`. This file centralizes the environment settings so you don't have to modify the source code:
