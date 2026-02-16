@@ -11,7 +11,7 @@ from config import DATA_DIR
 from torch.utils.data import DataLoader
 
 
-def get_data(BATCH_SIZE):
+def get_data(BATCH_SIZE, train_shuffle=True):
     transform_train = transforms.Compose([
         transforms.RandomCrop(32, padding=4),
         transforms.RandomHorizontalFlip(),
@@ -26,7 +26,7 @@ def get_data(BATCH_SIZE):
     ])
 
     trainset = torchvision.datasets.CIFAR100(root=DATA_DIR, train=True, download=True, transform=transform_train)
-    train_loader = DataLoader(trainset, batch_size=BATCH_SIZE, shuffle=True, num_workers=2)
+    train_loader = DataLoader(trainset, batch_size=BATCH_SIZE, shuffle=train_shuffle, num_workers=2)
 
     testset = torchvision.datasets.CIFAR100(root=DATA_DIR, train=False, download=True, transform=transform_test)
     test_loader = DataLoader(testset, batch_size=BATCH_SIZE, shuffle=False, num_workers=2)

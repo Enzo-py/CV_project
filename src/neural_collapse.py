@@ -3,8 +3,27 @@ import torch.nn.functional as F
 
 def compute_nc_metrics(features, labels, weights=None, num_classes=100):
     """
-    Calcule les indicateurs de Neural Collapse.
-    features: [N, d], labels: [N], weights: [K, d] (Optionnel)
+    Computes Neural Collapse (NC) metrics to evaluate latent space geometry.
+
+    This function quantifies the structural transition of the network into the 
+    Terminal Phase of Training (TPT) by measuring variability collapse, 
+    convergence to a Simplex ETF, and weight-feature alignment.
+
+    Args:
+        features (torch.Tensor): Latent representations from the last layer 
+            of the encoder, shape [N, d].
+        labels (torch.Tensor): Ground truth class indices, shape [N].
+        weights (torch.Tensor, optional): Classifier weight matrix (prototype 
+            vectors), shape [K, d]. Required for NC3 and NC4 calculation.
+        num_classes (int): Total number of classes (default: 100 for CIFAR-100).
+
+    Returns:
+        dict: A dictionary containing the following metrics:
+            - "NC1": Within-class variability collapse.
+            - "NC2": Convergence of class means to a Simplex ETF geometry.
+            - "NC3": Self aligment (alignment between class means and weights).
+            - "NC4": Equivalence to Nearest Class Center (NCC) decision rule.
+            - "NC5": Invariance of feature representations under data augmentation.
     """
     K = num_classes
     d = features.shape[1]
