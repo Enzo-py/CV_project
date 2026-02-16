@@ -21,8 +21,10 @@ BATCH_SIZE = 128
 
 ## Project Structure
 
-* **`nc_analysis.ipynb`**: Evaluation of Neural Collapse properties (NC1 to NC5) and PCA visualizations of the latent space.
-* **`compare_ood.ipynb`**: Benchmarking OOD scoring methods (MSP, Energy, ViM, and NECO) within the induced collapse regime.
+* **`notebooks/nc_analysis.ipynb`**: Evaluation of Neural Collapse properties (NC1 to NC5) and PCA visualizations of the latent space.
+* **`notebooks/compare_ood.ipynb`**: Benchmarking OOD scoring methods (MSP, Energy, ViM, and NECO) within the induced collapse regime.
+* **`notebooks/train_cifar.ipynb`**: Training ResNet on CIFAR-100 dataset.
+
 * **`src/`**: Core logic including model definitions, geometric loss functions, and OOD metrics.
 * **`figures/`**: Generated plots for latent space organization and metric distributions.
 * **`data/`**: Where the are stored (auto downloaded if needed)
